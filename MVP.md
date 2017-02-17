@@ -2,32 +2,43 @@
 
 ## Goals
 
-A non-profit organization is trying to raise awareness about women in technology. We need to identify the best areas to canvas. The organization will be placing street teams at the enxtrances to various subway stations.
+Use web scraping, exploratory data analysis, and linear regression to look at an interesting question related to movie and film.
 
 ## Initial Data Cleaning Approach and Exploratory Findings
 
-I examined the turnstile data available on the MTA website. The turnstile data only provided the cumulative number of entries and exits, not the net amount for any particular time period. I used a Python loop function to go through the data and calculate the net entries for each period.
+I scraped recent movie data from the Roger Ebert website. I collected the following features: titile, star rating, year released, MPAA rating, runtime in minutes as well as the text content of the movie review.
 
-The MTA collected most of its turnstile data at regular, four-hour intervals of midnight, 4am, 8am, etc. However, there were many instances where the data was an hour off of the regular schedule, and some observation times were seemingly random. To help with my time analysis, I rounded all time periods to the nearest hour, and eliminated the small proportion of data that far removed from the regular schedule.
+Some of the values in runtime and MPAA rating were missing. For now, I left in the data and have not choosen a proper imputation strategy.
 
-After cleaning the data, I was able to further narrow my station targets to 15, based on the total traffic for the month of December 2016.
+After cleaning and organizing the data, I examined the distribution of ratings with a histogram.
 
-![Top Stations Graph](images/top15.jpg)
+![Ebert Ratings](images/ratings_histogram.png)
 
-There is variability on stations by the day of the week.
+I also made a scatter plot to see if there might be any trends with runtime.
 
-![Day of Week Variability](images/weekly_var.jpg)
+![Runtime Scatter](images/runtime_scatter.png)
 
-There is strong variability on stations by the time of the day.
+Good thing I examined the data from various angles. I was able to find an outlier with the runtime. It looks like a short TV series was reviewed, so I removed that before moving to the modeling stage. I also had to perform one-hot encoding on the MPAA rating variables so the linear regression model could probably evaluate those features.
 
-![Time of Day Variability](images/day_var.jpg)
+Below is the correlation of the selected features and the response variable. Notice that only runtime and the R rating have a week correlation, everything else would be considered non-existant.
 
-## Intial Research Findings
+![Correlation](images/correlation.png)
 
-1. **Time of Day** - People are more receptive to talking and listening to new ideas depending on the time of day. During the morning and evening rush hour, people are concerned with getting to work or getting back to their family. Off-shoulder times such as mid-to-late afternoon when people are in a more relaxed mood has shown to be better.
-2. **Audience Matters** - The type of person you talk to can greatly vary the outcome of a canvassing project. Finding open-minded people is not easy. Preliminary research suggests college students are the most receptive to new ideas and ready to ask questions. Though, whether they follow through and engage with the non-profit is another story.
+I ran a multiple linear regression model with `statsmodels`. The R-squared value was not high and the p-values inform me that I should probably drop some extraneous variables as I revise my model.
+
+![OLS Results](images/ols_results.png)
+
+## Intial Findings
+
+1. **Increase Width and Height** - The dataset right now only has runtime and MPAA rating to predict the movie star rating. Also, there were only about 180 samples. We need movie entries and more features to increase predictive power.
+2. **Review Analysis** - The textual content of the movie review could add value to the predictive model if I was able to convert it to quantitative features. At this point, I am not versed in how to do that.
 
 ## Further Research and Analysis
 
-1. Income, Volunteerism and Charitable Giving
-2. Technology Hubs
+1. Robust scraping to handle infinity scrolling
+2. Bring in IMDB data for genre, actors, directors, countries, other critic ratings
+3. Potential feature engineering
+4. Store in SQL DB
+5. Deeper exploratory analysis and potentially some statistical inference
+6. Extensive linear modeling and test significance and assumptions
+7. Visualize errors and residuals
