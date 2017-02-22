@@ -4,20 +4,19 @@
 
 I would like to design a machine learning algorithm to learn how renowned late movie critic Roger Ebert would review movies today.
 
-With the abundance of data on movies, scripts, reviews, and forums for everyone - critics and general audience to express their opinion on movies - can I try to model Mr. Ebert's movie ratings against everyone else's?
+With the abundance of data on movies, scripts, reviews, and forums for everyone - critics and general audience to express their opinion on movies - can I try to model Ebert's movie ratings against everyone else's?
 
-So I would like to explore the question: **Can we model the movie preferences of the late Mr. Roger Ebert and estimate how he would continue to rate movies today?**
+So I would like to explore the question: **Can we model the movie preferences of the late Roger Ebert and estimate how he would continue to rate movies today?**
 
 Furthermore, can we create a machine learning algorithm that can not only rate movies similarly, but maybe even analyze movie elements and write reviews as he had?
 
 ## Challenge
 
-Roger Ebert doesn't review like other people - My tastes are very different from his.
+Roger Ebert was a unique movie critic. He did not review like other well-known critics, often went against the grain and had a strong penchant for foreign films. My tastes are starkedly different than his.
 
-He is an expert in the domain. He actually understands movies: Themes, plot, acting, cinematography
+Ebert's understanding of the cinema domain was extensive. He understands the minutae of themes, plots, acting, cinematography, and orchestral composition.
 
-- Probably inadequate to model based on objective data and numbers
-- But we'll assume that aggregating movie watchers and critics' ratings can come close
+It will probably be inadequate to model based purely on objective data and numerical features. Generating features that have some leaning toward subjectivity could push the model into stronger predictive territory. I believe that examining the ratings from regular movie goers and other critics will have a strong correlation with Ebert's ratings.
 
 ## Data
 
