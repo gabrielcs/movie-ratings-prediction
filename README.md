@@ -1,82 +1,76 @@
 # Movie Regression Project
 
-Famous blockbuster movies of the past ten years have included epic films such as The
-Avengers, Lord of the Rings, Avatar and the Dark Knight series. All these movies made over $300 million in the box office. However, these films had massive budgets to match their returns, which required investors with deep pockets. This project aims to assist investors in valuing the future return of a movie.
+## Introduction
 
-**Solution Statement** - Using Box Office Mojo data, predict the return on investment for movies. (accuracy metric needed)
+I would like to design a machine learning algorithm to learn how renowned late movie critic Roger Ebert would review movies today.
 
+With the abundance of data on movies, scripts, reviews, and forums for everyone - critics and general audience to express their opinion on movies - can I try to model Mr. Ebert's movie ratings against everyone else's?
 
-# Open-Ended Project
+So I would like to explore the question: **Can we model the movie preferences of the late Mr. Roger Ebert and estimate how he would continue to rate movies today?**
 
-## Goals
+Furthermore, can we create a machine learning algorithm that can not only rate movies similarly, but maybe even analyze movie elements and write reviews as he had?
 
-A non-profit organization is trying to raise awareness about women in technology. We need to identify the best areas to canvas. The organization will be placing street teams at the enxtrances to various subway stations.
+## Challenge
 
-## Assumptions
+Roger Ebert doesn't review like other people - My tastes are very different from his.
 
-List any assumptions you made in your analysis.
+He is an expert in the domain. He actually understands movies: Themes, plot, acting, cinematography
 
-Examples:
-- Combined 2 different Union Square stops
-- Exclude Commuter Hubs (ie. Penn Station / GCT-Bryant Park)
+- Probably inadequate to model based on objective data and numbers
+- But we'll assume that aggregating movie watchers and critics' ratings can come close
 
-## Approach
+## Data
 
-Explain your analysis about how you found the best stations. High-level research details.
+- 9000+ Roger Ebert movie reviews scraped from website over 36 year period (1980-2016)
+- Metacritic scores
+- IMDB scores and review counts
+- Genres, actors and directors
 
-Example:
-- Highest Foot Traffic
-- Tech Factor
-- Gender %
-- Income
-- Universities
+## Exploratory Data Analysis
 
-Zip Codes with Median Income > $70k
+I explored various quantitative features against the Ebert Stars to see if there was a high pearson correlation coefficient.
 
-![Income](images/income.png)
+![IMDB](images/imdb.png)
 
-Student Audience
+![Metascore](images/meta.png)
 
-![Universities](images/universities.png)
+![IMDB + Meta](images/imdb_meta.png)
 
-Startup Locality
+## Feature Engineering
 
-![Startups](images/startups.png)
+After an inital round of EDA, I went on to engineer novel features from the data set. I thought the following may have some influence on Roger Ebert's ratings:
 
-## Cleaning the Data
+- Whether a film was foreign (non-english dialogue)
+- Ratio of user reviews to critic reviews on IMDB
+- Length of movie description on IMDB and review on Ebert's website (in words)
+- Season the movie was released in (ie. Winter)
 
-Walkthrough how you cleaned the data and what issues you ran into. Mention any steps you took to exclude erroneous or outlier data.
+![Foreign](images/foreign.png)
 
-Example:
-- Some four-hour intervals were an hour off regular schedule
-- There were some negative values
-- There were some extremely high values
+![Review Length](images/review.png)
 
-## Finding Target Stations
+## Regression
 
-How did you go about filtering to find your list.
+I ran a few different combinations of features and ended up selecting the one with several of the numeric columns and the dummy variables for Season. The R-squared value was 0.45, meaning that approximately 45% of the variation in Ebert Stars was explained by the input features. I would like to run a more automated process of feature selection in the new feature and potentially add in dimensionality reduction to my model pipeline.
 
-Example:
-- Combine Approach with Assumptions to an Analytical Explanation
-- Weighted average of different components
-- Any mathematical formulas or equations
+![OLS](images/ols_results_2.png)
 
-Simple Weighted Equation
+![Leverage](images/leverage.png)
 
-![Tech Factor](images/tech_factor.png)
-
-## Final Recommendations
-
-Here are the recommendations for the non-profit organization. Which stations, what days/times and why?
+![Fitted](images/fitted.png)
 
 ## Lessons Learned
 
-Personal reflection on what you learned about Python, the Domain (NYC Subway system and canvassing), as well as Exploratory Data Analysis.
+I learned several concepts during this project. I implemented many new packages involved with scrapy and explored the nuances of the statsmodels API. I did not learn much about the movie industry domain, so if I were to continue working on this project, I would like to do more exploratory data analysis and research Roger Ebert's critiquing process, in hopes to better reverse engineer his process.
 
 ## Further Analysis
 
-If you had more time or more data, what interesting questions would you like to explore. Gives random visitors some ideas if they want to expand on your project.
+If I had more time with the project, I would complete the following tasks
+- Add in RottenTomatoes numerical attributes
+- Examine the effect of Genres and Star Actors
+- Fit a simpler multiple regression model on a smaller subset of features
+- Build a web app where individuals could put in movie attributes and spit out the projected Ebert rating
 
 ## Code Information
 
-Steps explaining how to reproduce results. Which notebooks or Python scripts to run.
+Feel free to browse the Jupyter notebooks in this repository. I used standard Python packages and visualization libraries. To acquire the data set, follow the docstrings for the scraping functions.
