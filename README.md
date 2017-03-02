@@ -50,7 +50,7 @@ After an inital round of EDA, I went on to engineer novel features from the data
 
 ## Regression
 
-I ran a few different combinations of features and ended up selecting the one with several of the numeric columns and the dummy variables for Season. The R-squared value was 0.45, meaning that approximately 45% of the variation in Ebert Stars was explained by the input features. I would like to run a more automated process of feature selection in the new feature and potentially add in dimensionality reduction to my model pipeline.
+I ran a few different combinations of features and ended up selecting the one with several of the numeric columns and the dummy variables for Season. The R-squared value was 0.45, meaning that approximately 45% of the variation in Ebert Stars was explained by the input features. I would like to run a more automated process of feature selection and potentially add in dimensionality reduction to my model pipeline.
 
 ![OLS](images/ols_results_2.png)
 
