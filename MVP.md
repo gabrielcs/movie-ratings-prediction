@@ -6,7 +6,7 @@ Use web scraping, exploratory data analysis, and linear regression to look at an
 
 ## Initial Data Cleaning Approach and Exploratory Findings
 
-I scraped recent movie data from the Roger Ebert website. I collected the following features: titile, star rating, year released, MPAA rating, runtime in minutes as well as the text content of the movie review.
+I scraped recent movie data from the Roger Ebert website. I collected the following features: title, star rating, year released, MPAA rating, runtime in minutes as well as the text content of the movie review.
 
 Some of the values in runtime and MPAA rating were missing. For now, I left in the data and have not choosen a proper imputation strategy.
 
