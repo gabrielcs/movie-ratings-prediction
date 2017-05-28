@@ -106,4 +106,4 @@ If I had more time with the project, I would complete the following tasks:
 
 ## Code Information
 
-Feel free to browse the Jupyter notebooks in this repository. I used standard Python packages and visualization libraries. To acquire the data set, follow the docstrings for the scraping functions.
+Feel free to browse the Jupyter notebooks in this repository. To acquire the data set, follow the docstrings for the scraping functions. I used standard Python packages and visualization libraries. To load the Pickle files you might need to use Pandas version 0.19.x. Pickle files larger than 100mb were not pushed to this repository since GitHub does not support them.
