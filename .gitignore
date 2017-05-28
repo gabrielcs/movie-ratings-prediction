@@ -1,3 +1,4 @@
+# files larger than 100mb not supported on GitHub
 data/ebert_imdb_df_v4.pkl
 data/ebert_imdb_df_v5.pkl
 data/ebert_imdb_df_v6.pkl
