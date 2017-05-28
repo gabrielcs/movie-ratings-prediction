@@ -8,7 +8,7 @@ Use web scraping, exploratory data analysis, and linear regression to look at an
 
 I scraped recent movie data from the Roger Ebert website. I collected the following features: title, star rating, year released, MPAA rating, runtime in minutes as well as the text content of the movie review.
 
-Some of the values in runtime and MPAA rating were missing. For now, I left in the data and have not choosen a proper imputation strategy.
+Some of the values in runtime and MPAA rating were missing. For now, I left it in the data.
 
 After cleaning and organizing the data, I examined the distribution of ratings with a histogram.
 
@@ -35,10 +35,10 @@ I ran a multiple linear regression model with `statsmodels`. The R-squared value
 
 ## Further Research and Analysis
 
-1. Robust scraping to handle infinity scrolling
+1. Robust scraping to handle infinite scrolling
 2. Bring in IMDB data for genre, actors, directors, countries, other critic ratings
-3. Potential feature engineering
-4. Store in SQL DB
+3. Research Roger Ebert's critiquing process, in hopes to better reverse engineer his process.
+4. Potential feature engineering
 5. Deeper exploratory analysis and potentially some statistical inference
 6. Extensive linear modeling and test significance and assumptions
 7. Visualize errors and residuals
