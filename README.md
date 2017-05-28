@@ -37,7 +37,11 @@ That showed me that adding genres, actors, directors and maybe a decade classifi
 
 ## Exploratory Data Analysis
 
-I explored various quantitative features against the Ebert Stars to see if there was a high pearson correlation coefficient.
+After cleaning and organizing the data, I examined the distribution of ratings with a histogram.
+
+![Ebert Ratings](images/ratings_histogram.png)
+
+I also explored various quantitative features against the Ebert Stars to see if there was a high pearson correlation coefficient.
 
 ![IMDB](images/imdb.png)
 
