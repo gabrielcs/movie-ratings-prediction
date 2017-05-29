@@ -31,7 +31,7 @@ I ran a multiple linear regression model with `statsmodels`. The R-squared value
 ## Intial Findings
 
 1. **Increase Width and Height** - The dataset right now only has runtime and MPAA rating to predict the movie star rating. Also, there were only about 180 samples. We need movie entries and more features to increase predictive power.
-2. **Review Analysis** - The textual content of the movie review could add value to the predictive model if I was able to convert it to quantitative features. At this point, I am not versed in how to do that.
+2. **Movie Review Textual Analysis** - The textual content of the movie review could add value to the predictive model if I was able to convert it to quantitative features. At this point, I am not versed in how to do that.
 
 ## Further Research and Analysis
 
