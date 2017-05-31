@@ -30,7 +30,7 @@ That showed me that adding genres, actors, directors and maybe a decade classifi
 
 ## Data
 
-- 9000+ Roger Ebert movie reviews scraped from website over 36 year period (1980-2016)
+- 9000+ Roger Ebert movie reviews scraped from website
 - Metacritic scores
 - IMDB scores and review counts
 - Genres, actors and directors
@@ -72,6 +72,10 @@ I also created dummy variables for the following data:
 However, I discarded actors and directors that appeared in a single movie in the dataset since they wouldn't have much predictive value. Anyhow, that resulted in a high-dimensional dataset with over 4800 features.
 
 ![Genres](images/genres.png)
+
+We can also see that Horror movies indeed get lower ratings like we suspected from reading his biography on Wikipedia:
+
+![Horror](images/horror.png)
 
 ## Regression
 

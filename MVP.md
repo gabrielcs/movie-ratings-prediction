@@ -12,7 +12,7 @@ Some of the values in runtime and MPAA rating were missing. For now, I left it i
 
 After cleaning and organizing the data, I examined the distribution of ratings with a histogram.
 
-![Ebert Ratings](images/ratings_histogram.png)
+![Ebert Ratings](images/ratings_histogram_mvp.png)
 
 I also made a scatter plot to see if there might be any trends with runtime.
 
